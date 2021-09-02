@@ -11,7 +11,9 @@ const searchBook = () => {
     // search text
     if (searchText === '') {
         console.log('please write something to display');
-        inputEmpty('block')
+        inputEmpty('block');
+        Spinner('none')
+
     }
     else {
         // load data
@@ -36,7 +38,7 @@ const displaySearchResult = books => {
     // Total Search Result 
         document.getElementById('total-search-result').innerText = books.length;
     //  console.log(books.length);
-    
+
     // forEach books
     books.forEach(book => {
         const div = document.createElement('div');
