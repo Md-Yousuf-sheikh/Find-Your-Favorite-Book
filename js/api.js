@@ -41,18 +41,19 @@ const displaySearchResult = books => {
         resultErrer('none')
     }
 
-
-    //  console.log(books.length);
-
     // forEach books
     books.forEach(book => {
         const div = document.createElement('div');
         div.classList.add('col');
-        const imgUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`;
+
+        let url = `../img/placeholder.png`;
+        if(typeof book.cover_i !== 'undefined'){
+            url = `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`;
+        };
 
         div.innerHTML = `
             <div class="card-body h-25">
-                <img src="${imgUrl}" class="card-img-top" alt="...">
+                <img src="${url}" class="card-img-top" alt="...">
                 <h3 class="card-title">Book: ${book.title}</h3>
                 <h4 class="card-title">Author: ${book.author_name}</h4>
                 <h5 class="card-title">Publish: ${book.first_publish_year}</h5>
