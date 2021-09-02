@@ -6,6 +6,11 @@ const searchBook = () => {
     // spinner show
     Spinner('block')
 
+    // Total Search Result 
+        fetch(` https://openlibrary.org/search.json?q=${searchText}`)
+        .then(res => res.json())
+        .then(data => document.getElementById('total-search-result').innerText=(data.numFound));
+
     // clear data
     searchField.value = '';
     // search text
@@ -35,8 +40,8 @@ const displaySearchResult = books => {
     }else{
         resultErrer('none')
     }
-    // Total Search Result 
-        document.getElementById('total-search-result').innerText = books.length;
+
+
     //  console.log(books.length);
 
     // forEach books
